@@ -71,11 +71,11 @@ class Demo(object):
         score_1, scene_1 = self.model(image_1)
         print(f"Image 1 - Quality Score: {score_1.mean().item()}")
 
-        # scene_1 텐서의 차원을 확인하고, 적절한 방법으로 처리
-        if scene_1.dim() == 1:  # 1D 텐서일 경우
-            print(f"Image 1 - Scene Prediction: {scene_1.argmax().item()}")
-        else:  # 2D 텐서일 경우
-            print(f"Image 1 - Scene Prediction: {scene_1.argmax(dim=1).item()}")
+        # scene_1 텐서의 크기를 확인하고, 적절하게 처리
+        if scene_1.numel() == 1:  # 단일 값일 경우
+            print(f"Image 1 - Scene Prediction: {scene_1.item()}")
+        else:  # 여러 개의 예측 결과가 있을 경우
+            print(f"Image 1 - Scene Predictions: {scene_1.argmax(dim=1)}")
 
         image_2 = image_2.to(self.device)
 
@@ -83,11 +83,11 @@ class Demo(object):
         score_2, scene_2 = self.model(image_2)
         print(f"Image 2 - Quality Score: {score_2.mean().item()}")
 
-        # scene_2 텐서의 차원을 확인하고, 적절한 방법으로 처리
-        if scene_2.dim() == 1:  # 1D 텐서일 경우
-            print(f"Image 2 - Scene Prediction: {scene_2.argmax().item()}")
-        else:  # 2D 텐서일 경우
-            print(f"Image 2 - Scene Prediction: {scene_2.argmax(dim=1).item()}")
+        # scene_2 텐서의 크기를 확인하고, 적절하게 처리
+        if scene_2.numel() == 1:  # 단일 값일 경우
+            print(f"Image 2 - Scene Prediction: {scene_2.item()}")
+        else:  # 여러 개의 예측 결과가 있을 경우
+            print(f"Image 2 - Scene Predictions: {scene_2.argmax(dim=1)}")
 
     def initialize(self):
         ckpt_path = self.checkpoint_dir
@@ -108,8 +108,8 @@ class Demo(object):
 
 def parse_config():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--image_1', type=str, default='E:/SPAQ/SPAQ/images/05293.png')
-    parser.add_argument('--image_2', type=str, default='E:/SPAQ/SPAQ/images/00914.png')
+    parser.add_argument('--image_1', type=str, default='E:/SPAQ/SPAQ/iphone_img/5.jpg')
+    parser.add_argument('--image_2', type=str, default='E:/SPAQ/SPAQ/iphone_img/6.jpg')
     parser.add_argument('--output_channels', type=int, default=9)
     return parser.parse_args()
 
