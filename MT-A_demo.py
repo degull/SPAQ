@@ -87,8 +87,8 @@ class Demo(object):
 
 def parse_config():
 	parser = argparse.ArgumentParser()
-	parser.add_argument('--image_1', type=str, default='E:/SPAQ/SPAQ/images/05293.png')
-	parser.add_argument('--image_2', type=str, default='E:/SPAQ/SPAQ/images/00914.png')
+	parser.add_argument('--image_1', type=str, default='E:/SPAQ/SPAQ/iphone_img/5.jpg')
+	parser.add_argument('--image_2', type=str, default='E:/SPAQ/SPAQ/iphone_img/6.jpg')
 	return parser.parse_args()
 
 def main():
@@ -98,13 +98,3 @@ def main():
 
 if __name__ == '__main__':
 	main()
-		
-
-
-
-
-
-
-
-
-
