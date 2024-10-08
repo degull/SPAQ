@@ -83,10 +83,10 @@ class Demo(object):
 def parse_config():
     parser = argparse.ArgumentParser()
     parser.add_argument('--input_channels', type=int, default=8)
-    parser.add_argument('--image_1', type=str, default='E:/SPAQ/SPAQ/images/05293.png')
-    parser.add_argument('--image_2', type=str, default='E:/SPAQ/SPAQ/images/00914.png')
-    parser.add_argument('--exif_tags_1', type=str, default='E:/SPAQ/SPAQ/exif_tags/05293_exif_tags.txt')
-    parser.add_argument('--exif_tags_2', type=str, default='E:/SPAQ/SPAQ/exif_tags/00914_exif_tags.txt')    
+    parser.add_argument('--image_1', type=str, default='E:/SPAQ/SPAQ/iphone_img/5.jpg')
+    parser.add_argument('--image_2', type=str, default='E:/SPAQ/SPAQ/iphone_img/6.jpg')
+    parser.add_argument('--exif_tags_1', type=str, default='E:/SPAQ/SPAQ/exif_tags/exif_data_05.txt')
+    parser.add_argument('--exif_tags_2', type=str, default='E:/SPAQ/SPAQ/exif_tags/exif_data_06.txt')    
     return parser.parse_args()
 
 def main():
